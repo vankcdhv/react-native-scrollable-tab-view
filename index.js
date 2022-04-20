@@ -47,7 +47,7 @@ const ScrollableTabView = createReactClass({
     tabBarInactiveTextColor: PropTypes.string,
     tabBarTextStyle: PropTypes.object,
     style: ViewPropTypes.style,
-    tabBarStyle: ViewPropTypes.object,
+    tabBarStyle: PropTypes.object,
     contentProps: PropTypes.object,
     scrollWithoutAnimation: PropTypes.bool,
     locked: PropTypes.bool,
@@ -398,6 +398,8 @@ const ScrollableTabView = createReactClass({
         },
         ...this.props.tabBarStyle,
       };
+    } else {
+      tabBarProps.style = this.props.tabBarStyle;
     }
 
     return <View style={[styles.container, this.props.style, ]} onLayout={this._handleLayout}>
